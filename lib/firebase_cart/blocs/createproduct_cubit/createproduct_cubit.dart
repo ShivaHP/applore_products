@@ -14,7 +14,7 @@ class CreateProductCubit extends Cubit<CreateProductState> {
   CreateProductCubit(this._productsRepo) : super(CreateProductState());
 
   Future<void> createproduct() async {
-    emit(state.copyWith(status: CreateProductStatus.loading));
+  
     try {
       if (state.description.isEmpty ||
           state.imagefile == null ||
@@ -23,7 +23,7 @@ class CreateProductCubit extends Cubit<CreateProductState> {
         FlutterToast.showtoast("Please fill all details");
         return;
       }
-      print(state.compressedimage!.path);
+      emit(state.copyWith(status: CreateProductStatus.loading));
 
       Map<String, String> product = {
         "dt_created": DateTime.now().toString(),

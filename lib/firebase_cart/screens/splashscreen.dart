@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_notification/firebase_cart/blocs/products_bloc/products_bloc.dart';
-import 'package:flutter_notification/firebase_cart/blocs/products_bloc/products_event.dart';
 import 'package:flutter_notification/firebase_cart/config/share_pref.dart';
 import 'package:flutter_notification/firebase_cart/screens/authentication/login.dart';
 import 'package:flutter_notification/firebase_cart/screens/product/products_list.dart';
