@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_notification/firebase_cart/blocs/createproduct_cubit/createproduct_cubit.dart';
 import 'package:flutter_notification/firebase_cart/blocs/createproduct_cubit/createproduct_state.dart';
-import 'package:flutter_notification/firebase_cart/blocs/products_bloc/products_bloc.dart';
-import 'package:flutter_notification/firebase_cart/blocs/products_bloc/products_event.dart';
 import 'package:flutter_notification/firebase_cart/config/palette.dart';
-import 'package:flutter_notification/firebase_cart/models/product_model.dart';
 import 'package:flutter_notification/firebase_cart/repository/products_repo.dart';
 import 'package:flutter_notification/firebase_cart/utils/extensions/spacing.dart';
 import 'package:flutter_notification/firebase_cart/widgets/custom_textfield.dart';
@@ -15,37 +12,10 @@ import 'package:flutter_notification/firebase_cart/widgets/customappbar.dart';
 import 'package:flutter_notification/firebase_cart/widgets/customelevatedbutton.dart';
 import 'package:image_picker/image_picker.dart';
 
-class CreateProduct extends StatefulWidget {
+class CreateProduct extends StatelessWidget {
   static const String route = "/create_product";
-
-  CreateProduct({Key? key}) : super(key: key);
-
-  @override
-  State<CreateProduct> createState() => _CreateProductState();
-}
-
-class _CreateProductState extends State<CreateProduct> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  late TextEditingController _namecontroller;
-  late TextEditingController _descriptioncontroller;
-  late TextEditingController _pricecontroller;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _namecontroller = TextEditingController();
-    _descriptioncontroller = TextEditingController();
-    _pricecontroller = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _namecontroller.dispose();
-    _descriptioncontroller.dispose();
-    _pricecontroller.dispose();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
