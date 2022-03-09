@@ -23,15 +23,18 @@ class AuthenticationRepository {
   loginwithgoogle()async{
    try {
      GoogleSignInAccount? _googlesiginaccount=await _googleSignIn.signIn();
-     if(_googlesiginaccount==null)return;
+     if(_googlesiginaccount==null)throw LoginWithGoogleException("Denied Login");
      GoogleSignInAuthentication _googleSignInAuthentication=await _googlesiginaccount.authentication;
      OAuthCredential _credential=GoogleAuthProvider.credential(idToken:_googleSignInAuthentication.idToken,accessToken: _googleSignInAuthentication.accessToken );
      _firebaseAuth.signInWithCredential(_credential);
    } on FirebaseAuthException catch(err){
      throw LoginWithGoogleException.fromCode(err.code);
    }
+   on LoginWithGoogleException catch(e){
+     throw LoginWithGoogleException(e.message);
+   }
    catch(err){
-     throw LoginWithEmailAndPasswordException("Login with Google Failed");
+     throw LoginWithGoogleException("Login with Google Failed");
    }
   }
 
