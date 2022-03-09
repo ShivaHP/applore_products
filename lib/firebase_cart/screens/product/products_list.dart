@@ -71,7 +71,7 @@ class _ProductsListState extends State<ProductsList> {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context,LoginScreen.route);
+                 
                   context.read<AuthBloc>().add(LogoutRequested());
                 },
                 icon: Icon(
